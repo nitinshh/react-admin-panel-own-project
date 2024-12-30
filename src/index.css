@@ -21,3 +21,101 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* Rounded and shadow effects */
+.sidebar {
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Hide scrollbar by default */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Show scrollbar only when hovering over the sidebar (when expanded) */
+.scrollbar-visible::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-visible:hover::-webkit-scrollbar {
+  display: block;
+  width: 8px; /* Slightly thinner scrollbar */
+  transition: width 0.3s ease-in-out; /* Smooth transition for the scrollbar appearance */
+}
+
+/* Customize the scrollbar track */
+.scrollbar-visible::-webkit-scrollbar-track {
+  background: #f9f9f9; /* Soft light background for the track */
+  border-radius: 5px; /* Rounded corners for a smoother look */
+}
+
+/* Customize the scrollbar thumb */
+.scrollbar-visible::-webkit-scrollbar-thumb {
+  background: #ccc; /* Subtle gray color for the thumb */
+  border-radius: 5px; /* Rounded thumb for smoothness */
+  border: 2px solid transparent; /* Clean edge without any hard lines */
+  background-clip: content-box; /* Keeps the border clean */
+  transition: background 0.3s ease; /* Smooth transition for thumb color */
+}
+
+/* Optional: Change thumb color when hovering over the sidebar */
+.scrollbar-visible:hover::-webkit-scrollbar-thumb {
+  background: #bbb; /* Lighter gray when the sidebar is hovered */
+}
+
+
+
+
+
+.navbar {
+  background-color: #f9fafb; /* Gray-50 */
+  border-bottom: 1px solid #e5e7eb; /* Gray-200 */
+  position: fixed;
+  top: 0;
+  right: 0; /* Align navbar to the right side */
+  z-index: 50;
+  width: auto;
+  max-width: 700px; /* Same as the dashboard width */
+  margin: 0 auto; /* Center the navbar */
+  border-radius: 8px; /* Optional rounded corners */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem; /* Adjust padding */
+}
+
+.navbar-button {
+  background: linear-gradient(to right, #a78bfa, #f472b6, #f87171); /* Purple-Pink-Red gradient */
+  padding: 0.5rem;
+  border-radius: 9999px; /* Full round button */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem; /* Smaller width for the button */
+  height: 2.5rem; /* Keep the button round */
+}
+
+.navbar-button svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: white;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-section img {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 9999px; /* Full round profile image */
+  border: 1px solid #d1d5db; /* Gray-300 */
+}
