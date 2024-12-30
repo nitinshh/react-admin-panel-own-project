@@ -88,8 +88,7 @@ html, body {
   justify-content: flex-end;
   align-items: center;
   opacity: 0;
-  animation: slideInFromRight 1s forwards;
-  animation-delay: 0.5s;
+  animation: slideInFromRight 1s forwards; /* Removed delay */
   margin-right: 30px;
 }
 
@@ -163,4 +162,3 @@ button:hover {
 button:focus {
   outline: none;
 }
-
