@@ -2,35 +2,48 @@ import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../Styles/LoginPage.css"; // External CSS for custom styles
+import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Initialize the hook for navigation
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      toast.error("Both email and password are required!");
-      return;
+
+    // Check for hardcoded credentials (email and password)
+    if (email === "admin@gmail.com" && password === "123456") {
+      // Redirect to dashboard if credentials are correct
+      navigate("/dashboard"); // This will redirect to the dashboard
+    } else {
+      // If credentials are wrong, display an alert
+      toast.error("Invalid email or password");
     }
-    try {
-      const response = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-      if (response.ok) {
-        const { token } = await response.json();
-        localStorage.setItem("token", token);
-        toast.success("Login successful");
-      } else {
-        const errorData = await response.json();
-        toast.error(errorData.message || "Invalid credentials");
-      }
-    } catch (error) {
-      console.error("An error occurred", error);
-      toast.error("An error occurred, please try again later");
-    }
+
+    // Commented out the login API logic
+    // if (!email || !password) {
+    //   toast.error("Both email and password are required!");
+    //   return;
+    // }
+    // try {
+    //   const response = await fetch("http://localhost:3000/api/login", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ email, password }),
+    //   });
+    //   if (response.ok) {
+    //     const { token } = await response.json();
+    //     localStorage.setItem("token", token);
+    //     toast.success("Login successful");
+    //   } else {
+    //     const errorData = await response.json();
+    //     toast.error(errorData.message || "Invalid credentials");
+    //   }
+    // } catch (error) {
+    //   console.error("An error occurred", error);
+    //   toast.error("An error occurred, please try again later");
+    // }
   };
 
   return (
